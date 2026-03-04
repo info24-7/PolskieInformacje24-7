@@ -1,36 +1,36 @@
+/* Reset marginesów */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Tło całej strony */
 body {
   font-family: Arial, sans-serif;
   background-color: #ffffff;
 }
 
+/* Pasek górny */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #001f4d;
+  background-color: #001f4d; /* granatowy */
   padding: 10px 20px;
   color: white;
 }
 
+/* Logo z pionowym podziałem na flagę Polski */
 .logo {
   font-size: 24px;
   font-weight: bold;
+  background: linear-gradient(to bottom, #dc143c 50%, #ffffff 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.logo .red {
-  color: #dc143c;
-}
-
-.logo .white {
-  color: #ffffff;
-}
-
+/* Menu */
 nav ul {
   list-style: none;
   display: flex;
@@ -45,9 +45,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #ffcc00;
+  color: #ffcc00; /* żółty na hover */
 }
 
+/* Sekcja artykułów */
 main {
   max-width: 900px;
   margin: 20px auto;
