@@ -1,4 +1,3 @@
-/* Reset marginesów */
 * {
   margin: 0;
   padding: 0;
@@ -21,11 +20,11 @@ header {
   position: relative;
 }
 
-/* Logo z pionowym podziałem na flagę Polski */
+/* Logo z pionowym podziałem na flagę Polski (BIAŁO-CZERWONA) */
 .logo {
   font-size: 28px;
   font-weight: bold;
-  background: linear-gradient(to bottom, #dc143c 50%, #ffffff 50%);
+  background: linear-gradient(to bottom, #ffffff 50%, #dc143c 50%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
