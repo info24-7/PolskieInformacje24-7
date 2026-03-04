@@ -1,4 +1,4 @@
-// Funkcja do formatowania daty
+// Funkcja do daty
 function updateDate() {
   const dateEl = document.getElementById("current-date");
   const now = new Date();
@@ -16,6 +16,17 @@ function updateDate() {
   dateEl.textContent = `${dayName} ${day}.${month}.${year} ${hours}:${minutes}`;
 }
 
-// Aktualizacja co minutę
 updateDate();
 setInterval(updateDate, 60000);
+
+// Hamburger menu mobile
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+  if(menu.style.display === "flex") {
+    menu.style.display = "none";
+  } else {
+    menu.style.display = "flex";
+  }
+});
