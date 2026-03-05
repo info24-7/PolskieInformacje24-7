@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+<body>
+
+<h2>Panel admina</h2>
+
+<input id="email" placeholder="email">
+<input id="password" type="password" placeholder="hasło">
+<button onclick="login()">Login</button>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+
+const firebaseConfig = {
+apiKey: "API_KEY",
+authDomain: "AUTH_DOMAIN",
+projectId: "PROJECT_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+window.login = function() {
+
+const email = document.getElementById("email").value;
+const password = document.getElementById("password").value;
+
+signInWithEmailAndPassword(auth, email, password)
+.then(() => {
+
+window.location = "admin.html";
+
+})
+.catch(err => alert(err.message));
+
+}
+
+</script>
+
+</body>
+</html>
