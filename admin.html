@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin</title>
+</head>
+<body>
+
+<h1>Dodaj artykuł</h1>
+
+<input id="title" placeholder="Tytuł"><br><br>
+
+<input id="image" placeholder="Link do obrazka"><br><br>
+
+<textarea id="content" placeholder="Treść artykułu"></textarea><br><br>
+
+<button onclick="addArticle()">Dodaj</button>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
+
+import { getFirestore, collection, addDoc, serverTimestamp }
+
+from "https://www.gstatic.com/firebasejs/12.10.0/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "API_KEY",
+authDomain: "AUTH_DOMAIN",
+projectId: "PROJECT_ID"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+window.addArticle = async function() {
+
+const title = document.getElementById("title").value;
+
+const image = document.getElementById("image").value;
+
+const content = document.getElementById("content").value;
+
+await addDoc(collection(db, "articles"), {
+
+title: title,
+
+image: image,
+
+content: content,
+
+created: serverTimestamp()
+
+});
+
+alert("Artykuł dodany!");
+
+}
+
+</script>
+
+</body>
+</html>
