@@ -1,136 +1,83 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
+margin:0;
 font-family:Arial;
-background:#f2f2f2;
+background:#f4f4f4;
 }
 
-/* HEADER */
-
-header{
+.topbar{
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:#001f4d;
-padding:20px 40px;
-color:white;
-position:relative;
+background:white;
+border-bottom:5px solid red;
+padding:15px;
+font-size:18px;
 }
 
 .logo{
-font-size:28px;
 font-weight:bold;
-background:linear-gradient(to bottom,#ffffff 50%,#dc143c 50%);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:20px;
 }
 
-.date{
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-font-size:18px;
+#current-date{
 font-weight:bold;
-}
-
-nav ul{
-list-style:none;
-display:flex;
-gap:25px;
-}
-
-nav ul li a{
-text-decoration:none;
-color:white;
-font-weight:bold;
-}
-
-nav ul li a:hover{
-color:yellow;
 }
 
 .hamburger{
-display:none;
-font-size:28px;
+font-size:24px;
 cursor:pointer;
 }
 
-/* ARTYKUŁY */
+nav{
+display:none;
+flex-direction:column;
+background:red;
+}
 
-main{
+nav a{
+color:white;
+text-decoration:none;
+padding:10px;
+border-bottom:1px solid rgba(255,255,255,0.3);
+}
+
+nav a:hover{
+background:#cc0000;
+}
+
+.title{
+text-align:center;
+margin-top:30px;
+}
+
+#articles{
 max-width:900px;
-margin:20px auto;
-padding:0 20px;
+margin:auto;
+padding:20px;
 }
 
 .article{
 background:white;
-margin-bottom:25px;
+margin-bottom:20px;
 padding:15px;
-border-radius:10px;
-box-shadow:0 2px 6px rgba(0,0,0,0.15);
+border-radius:8px;
 }
 
 .article img{
 width:100%;
-height:200px;
-object-fit:cover;
 border-radius:6px;
 }
 
 .article h2{
-margin-top:10px;
-font-size:22px;
+margin:10px 0;
 }
 
 .article p{
-margin-top:10px;
-color:#444;
+color:#333;
 }
 
 .article a{
-display:inline-block;
-margin-top:10px;
 color:red;
 font-weight:bold;
 text-decoration:none;
-}
-
-/* MOBILE */
-
-@media(max-width:768px){
-
-header{
-flex-wrap:wrap;
-padding:15px 20px;
-}
-
-.date{
-position:relative;
-left:auto;
-transform:none;
-margin:10px 0;
-text-align:center;
-}
-
-nav ul{
-flex-direction:column;
-display:none;
-width:100%;
-background:#001f4d;
-}
-
-nav ul li{
-text-align:center;
-padding:10px 0;
-}
-
-.hamburger{
-display:block;
-}
-
 }
