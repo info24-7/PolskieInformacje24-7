@@ -1,127 +1,85 @@
-function updateDate(){
+<!DOCTYPE html>
+<html>
+<head>
 
-const el=document.getElementById("current-date");
+<title>Polskie Informacje 24/7</title>
 
-const now=new Date();
+<style>
 
-const days=[
-'Niedziela',
-'Poniedziałek',
-'Wtorek',
-'Środa',
-'Czwartek',
-'Piątek',
-'Sobota'
-];
-
-const dayName=days[now.getDay()];
-
-const day=String(now.getDate()).padStart(2,'0');
-const month=String(now.getMonth()+1).padStart(2,'0');
-const year=now.getFullYear();
-
-const hours=String(now.getHours()).padStart(2,'0');
-const minutes=String(now.getMinutes()).padStart(2,'0');
-
-el.textContent=`${dayName} ${day}.${month}.${year} ${hours}:${minutes}`;
-
+body{
+font-family:Arial;
+margin:0;
+background:#f2f2f2;
 }
 
-updateDate();
-setInterval(updateDate,60000);
-
-
-
-const hamburger=document.getElementById("hamburger");
-const menu=document.getElementById("menu");
-
-hamburger.onclick=()=>{
-
-if(menu.style.display==="flex"){
-menu.style.display="none";
-}else{
-menu.style.display="flex";
+.topbar{
+background:#0a2c5a;
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
-};
-
-
-
-const feeds=[
-
-"https://api.rss2json.com/v1/api.json?rss_url=https://www.rmf24.pl/fakty/feed",
-"https://api.rss2json.com/v1/api.json?rss_url=https://www.polsatnews.pl/rss/polska.xml",
-"https://api.rss2json.com/v1/api.json?rss_url=https://tvn24.pl/najnowsze.xml"
-
-];
-
-async function loadNews(){
-
-const container=document.getElementById("articles");
-
-container.innerHTML="Ładowanie artykułów...";
-
-let articles=[];
-
-for(const url of feeds){
-
-try{
-
-const response=await fetch(url);
-const data=await response.json();
-
-data.items.forEach(item=>{
-
-articles.push({
-title:item.title,
-desc:item.description,
-img:item.thumbnail,
-link:item.link
-});
-
-});
-
-}catch(e){
-console.log("Błąd RSS",e);
+.logo{
+font-size:28px;
+font-weight:bold;
+background:linear-gradient(white 50%, red 50%);
+-webkit-background-clip:text;
+color:transparent;
 }
 
+.menu a{
+color:white;
+margin-left:20px;
+text-decoration:none;
 }
 
-showArticles(articles.slice(0,15));
-
+#articles{
+padding:40px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
 }
 
-
-
-function showArticles(list){
-
-const container=document.getElementById("articles");
-
-container.innerHTML="";
-
-list.forEach(a=>{
-
-const div=document.createElement("div");
-div.className="article";
-
-div.innerHTML=`
-
-<img src="${a.img}">
-
-<h2>${a.title}</h2>
-
-<p>${a.desc.substring(0,120)}...</p>
-
-<a href="${a.link}" target="_blank">Czytaj więcej</a>
-
-`;
-
-container.appendChild(div);
-
-});
-
+.article{
+background:white;
+padding:15px;
+border-radius:8px;
 }
 
+.article img{
+width:100%;
+border-radius:5px;
+}
 
+</style>
 
-loadNews();
+</head>
+
+<body>
+
+<div class="topbar">
+
+<div class="logo">
+Polskie Informacje 24/7
+</div>
+
+<div class="menu">
+<a>Najnowsze</a>
+<a>Polityka</a>
+<a>Sport</a>
+<a>Ciekawostki</a>
+<a href="login.html">Login</a>
+</div>
+
+</div>
+
+<div id="articles">
+Ładowanie artykułów...
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
