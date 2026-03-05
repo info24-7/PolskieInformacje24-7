@@ -4,40 +4,55 @@
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
-<body>
+
+<body style="font-family:Arial;padding:40px">
 
 <h2>Panel admina</h2>
 
-<input id="email" placeholder="email">
-<input id="password" type="password" placeholder="hasło">
+<input id="email" placeholder="email"><br><br>
+<input id="password" type="password" placeholder="hasło"><br><br>
+
 <button onclick="login()">Login</button>
+
+<p id="status"></p>
 
 <script type="module">
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.10.0/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 const firebaseConfig = {
-apiKey: "API_KEY",
-authDomain: "AUTH_DOMAIN",
-projectId: "PROJECT_ID"
+apiKey: "AIzaSyDqHvuF1iV5MaDwuGd_gQ1_AbpsEb456aU",
+authDomain: "polskieinformacje24-7.firebaseapp.com",
+projectId: "polskieinformacje24-7",
+storageBucket: "polskieinformacje24-7.firebasestorage.app",
+messagingSenderId: "1097149063778",
+appId: "1:1097149063778:web:e009bec68709625826e73b",
+measurementId: "G-QWWZSNW2YE"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-window.login = function() {
+window.login = function(){
 
 const email = document.getElementById("email").value;
 const password = document.getElementById("password").value;
 
-signInWithEmailAndPassword(auth, email, password)
-.then(() => {
+signInWithEmailAndPassword(auth,email,password)
 
-window.location = "admin.html";
+.then(()=>{
+
+document.getElementById("status").innerText="Zalogowano!";
+window.location="admin.html";
 
 })
-.catch(err => alert(err.message));
+
+.catch(err=>{
+
+document.getElementById("status").innerText=err.message;
+
+});
 
 }
 
