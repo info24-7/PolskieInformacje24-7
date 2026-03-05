@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Nowa technologia zmienia świat",
+    "category": "Ciekawostki",
+    "image": "https://picsum.photos/600/400",
+    "content": "Naukowcy ogłosili przełom w technologii który może zmienić przyszłość internetu.",
+    "date": "05.03.2026"
+  },
+  {
+    "id": 2,
+    "title": "Reprezentacja Polski wygrywa mecz",
+    "category": "Sport",
+    "image": "https://picsum.photos/600/401",
+    "content": "Polska reprezentacja wygrała ważny mecz w eliminacjach.",
+    "date": "05.03.2026"
+  }
+]
